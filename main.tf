@@ -49,7 +49,7 @@ module "ec2_cluster" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
   name           = "${var.cluster_name}"
-  instance_count = 1
+  instance_count = 4
 
   ami                    = "${var.ubuntu_ami}"
   instance_type          = "t2.medium"
@@ -61,7 +61,7 @@ module "ec2_cluster" {
   associate_public_ip_address = true
   ebs_block_device = [{
         device_name = "/dev/sdg"
-        volume_size = 30
+        volume_size = 50
         volume_type = "gp2"
         delete_on_termination = true
     }]
